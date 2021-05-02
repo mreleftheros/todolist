@@ -64,18 +64,26 @@ body {
       margin: auto;
       text-align: center;
       position: relative;
+
+      &:hover::after {
+        background: $orangeish;
+      }
     }
 
     .todo-filter-container::after {
       content: "\25BC";
+      background: $redish;
+      padding: .5rem;
       position: absolute;
-      top: .5rem;
-      right: .5rem;
+      top: 0;
+      right: 0;
+      bottom: 0;
       pointer-events: none;
     }
 
     #todoFilter {
       width: 100%;
+      cursor: pointer;
     }
   }
 

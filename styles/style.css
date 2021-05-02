@@ -73,15 +73,22 @@ body {
   text-align: center;
   position: relative;
 }
+.wrapper .inputs .todo-filter-container:hover::after {
+  background: #d69200;
+}
 .wrapper .inputs .todo-filter-container::after {
   content: "▼";
+  background: #d30d0d;
+  padding: 0.5rem;
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0;
+  right: 0;
+  bottom: 0;
   pointer-events: none;
 }
 .wrapper .inputs #todoFilter {
   width: 100%;
+  cursor: pointer;
 }
 .wrapper #todoList {
   list-style: none;
