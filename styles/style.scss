@@ -2,6 +2,18 @@
 @import "defaults";
 
 body {
-  background: linear-gradient(45deg, $primaryOrange 30%, $primaryRed);
+  background: linear-gradient(45deg, $orangeish 30%, $redish);
   min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  color: $whiteish;
+}
+
+.header {
+  min-height: 10vh;
+  padding: 1rem 0;
+
+  &__title {
+    text-align: center;
+  }
 }

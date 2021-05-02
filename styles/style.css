@@ -17,4 +17,15 @@ body {
 body {
   background: linear-gradient(45deg, #d69200 30%, #d30d0d);
   min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  color: #cacaca;
+}
+
+.header {
+  min-height: 10vh;
+  padding: 1rem 0;
+}
+.header__title {
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */
