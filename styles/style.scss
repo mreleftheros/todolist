@@ -10,10 +10,133 @@ body {
 }
 
 .header {
-  min-height: 10vh;
-  padding: 1rem 0;
+  min-height: 15vh;
 
   &__title {
+    padding: 1rem 0;
     text-align: center;
+  }
+}
+
+.wrapper {
+  min-height: 85vh;
+  padding-top: 1rem;
+
+  .inputs {
+    width: 100%;
+
+    input, select {
+      text-align: center;
+      border: none;
+      outline: none;
+      padding: .5rem;
+      appearance: none;
+    }
+
+    input:focus {
+      background: $tealish;
+      color: $whiteish;
+    }
+
+    .btn {
+      border: none;
+      padding: .5rem;
+      color: $redish;
+      background: #fff;
+      cursor: pointer;
+  
+      &:hover {
+        background: $redish;
+        color: $whiteish;
+      }
+    }
+
+    #addForm {
+      width: 20rem;
+      margin: 1rem auto;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+  
+    .todo-filter-container {
+      width: 20rem;
+      margin: auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .todo-filter-container::after {
+      content: "\25BC";
+      position: absolute;
+      top: .5rem;
+      right: .5rem;
+      pointer-events: none;
+    }
+
+    #todoFilter {
+      width: 100%;
+    }
+  }
+
+  #todoList {
+    list-style: none;
+    width: 50rem;
+    margin: 1rem auto 0;
+    padding: .5rem;
+    color: #111;
+    font-weight: bold;
+
+    li {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      border-radius: 1.5rem;
+      background: #fff;
+      padding: .5rem;
+
+      span {
+        flex: 1;
+        text-align: center;
+      }
+
+      .btn {
+        cursor: pointer;
+        border: none;
+        padding: .5rem;
+        border-radius: 50%;
+        color: #fff;
+
+        &:first-of-type {
+          margin-right: .5rem;
+        }
+      }
+
+      .check-btn {
+        background: lime;
+
+        &:hover {
+          background: $whiteish;
+          color: lime;
+        }
+      }
+
+      .remove-btn {
+        background: $redish;
+
+        &:hover {
+          background: $whiteish;
+          color: $redish;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

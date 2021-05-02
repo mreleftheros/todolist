@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-size: 62.5%;
 }
@@ -23,9 +24,114 @@ body {
 }
 
 .header {
-  min-height: 10vh;
-  padding: 1rem 0;
+  min-height: 15vh;
 }
 .header__title {
+  padding: 1rem 0;
   text-align: center;
+}
+
+.wrapper {
+  min-height: 85vh;
+  padding-top: 1rem;
+}
+.wrapper .inputs {
+  width: 100%;
+}
+.wrapper .inputs input, .wrapper .inputs select {
+  text-align: center;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  appearance: none;
+}
+.wrapper .inputs input:focus {
+  background: #006e6e;
+  color: #cacaca;
+}
+.wrapper .inputs .btn {
+  border: none;
+  padding: 0.5rem;
+  color: #d30d0d;
+  background: #fff;
+  cursor: pointer;
+}
+.wrapper .inputs .btn:hover {
+  background: #d30d0d;
+  color: #cacaca;
+}
+.wrapper .inputs #addForm {
+  width: 20rem;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.wrapper .inputs .todo-filter-container {
+  width: 20rem;
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+.wrapper .inputs .todo-filter-container::after {
+  content: "▼";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  pointer-events: none;
+}
+.wrapper .inputs #todoFilter {
+  width: 100%;
+}
+.wrapper #todoList {
+  list-style: none;
+  width: 50rem;
+  margin: 1rem auto 0;
+  padding: 0.5rem;
+  color: #111;
+  font-weight: bold;
+}
+.wrapper #todoList li {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 1.5rem;
+  background: #fff;
+  padding: 0.5rem;
+}
+.wrapper #todoList li span {
+  flex: 1;
+  text-align: center;
+}
+.wrapper #todoList li .btn {
+  cursor: pointer;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: #fff;
+}
+.wrapper #todoList li .btn:first-of-type {
+  margin-right: 0.5rem;
+}
+.wrapper #todoList li .check-btn {
+  background: lime;
+}
+.wrapper #todoList li .check-btn:hover {
+  background: #cacaca;
+  color: lime;
+}
+.wrapper #todoList li .remove-btn {
+  background: #d30d0d;
+}
+.wrapper #todoList li .remove-btn:hover {
+  background: #cacaca;
+  color: #d30d0d;
+}
+
+@media screen and (min-width: 600px) {
+  .inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }/*# sourceMappingURL=style.css.map */
