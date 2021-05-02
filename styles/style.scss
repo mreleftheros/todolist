@@ -1,0 +1,7 @@
+@import "variables";
+@import "defaults";
+
+body {
+  background: linear-gradient(45deg, $primaryOrange 30%, $primaryRed);
+  min-height: 100vh;
+}
