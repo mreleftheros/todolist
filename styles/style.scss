@@ -81,7 +81,7 @@ body {
 
   #todoList {
     list-style: none;
-    width: 50rem;
+    min-width: 20rem;
     margin: 1rem auto 0;
     padding: .5rem;
     color: #111;
@@ -138,5 +138,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  #todoList {
+    width: 50rem;
   }
 }
