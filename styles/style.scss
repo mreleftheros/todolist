@@ -66,13 +66,13 @@ body {
       position: relative;
 
       &:hover::after {
-        background: $orangeish;
+        background: $redish;
       }
     }
 
     .todo-filter-container::after {
       content: "\25BC";
-      background: $redish;
+      background: $orangeish;
       padding: .5rem;
       position: absolute;
       top: 0;
@@ -95,6 +95,10 @@ body {
     color: #111;
     font-weight: bold;
 
+    li.completed {
+      opacity: .5;
+    }
+
     li {
       width: 100%;
       display: flex;
@@ -102,6 +106,8 @@ body {
       border-radius: 1.5rem;
       background: #fff;
       padding: .5rem;
+      margin-bottom: .5rem;
+      transition: opacity .5s ease;
 
       span {
         flex: 1;
@@ -117,6 +123,10 @@ body {
 
         &:first-of-type {
           margin-right: .5rem;
+        }
+
+        i {
+          pointer-events: none;
         }
       }
 
