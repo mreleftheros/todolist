@@ -43,7 +43,7 @@ function addTodo(e) {
   //add newTodo in todos
   todos.push({todoContent: newTodo, isCompleted: false});
 
-  //set todos to localStorage
+  //update localStorage
   localStorage.setItem("todos", JSON.stringify(todos));
 
   //update UI
@@ -86,6 +86,9 @@ function removeTodo(li, liText) {
 
   //remove from array
   todos.splice(index, 1);
+
+  //update localStorage
+  localStorage.setItem("todos", JSON.stringify(todos));
 
   //update UI
   removeTodoUI(li);
