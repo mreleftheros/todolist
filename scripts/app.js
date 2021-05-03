@@ -76,7 +76,13 @@ function addTodoUI(todo) {
 function toggleTodo(li, liText) {
   let arrayTodo = todos.find(todo => todo.todoContent === liText);
 
+  //update todos array
   arrayTodo.isCompleted = !arrayTodo.isCompleted;
+
+  //update localStorage
+  localStorage.setItem("todos", JSON.stringify(todos));
+
+  //update UI
   li.classList.toggle("completed");
 }
 
