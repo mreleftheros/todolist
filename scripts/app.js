@@ -30,7 +30,7 @@ function getLocalStorage() {
   checkLocalStorage();
 
   // add each todo from localStorage to UI
-  todos.forEach(todo => addTodoUI(todo.todoContent));
+  todos.forEach(todo => addTodoUI(todo));
 }
 
 // add todo
@@ -47,7 +47,7 @@ function addTodo(e) {
   localStorage.setItem("todos", JSON.stringify(todos));
 
   //update UI
-  addTodoUI(newTodo);
+  addTodoUI(todos[todos.length - 1]);
 
   //clear form
   addForm.reset();
@@ -55,18 +55,33 @@ function addTodo(e) {
 
 //update addTodo UI
 function addTodoUI(todo) {
-  // create html template
-  html = `
-  <li>
-    <span>${todo}</span>
-    <button class="btn check-btn" type="button">
-      <i class="fas fa-check"></i>
-    </button>
-    <button class="btn remove-btn" type="button">
-     <i class="fas fa-trash"></i>
-    </button>
-  </li>
-  `;
+  // check todo.isCompleted and make html template
+  let html;
+
+  if(todo.isCompleted)
+    html = `
+    <li class="completed">
+      <span>${todo.todoContent}</span>
+      <button class="btn check-btn" type="button">
+        <i class="fas fa-check"></i>
+      </button>
+      <button class="btn remove-btn" type="button">
+      <i class="fas fa-trash"></i>
+      </button>
+    </li>
+    `;
+  else 
+    html = `
+    <li>
+      <span>${todo.todoContent}</span>
+      <button class="btn check-btn" type="button">
+        <i class="fas fa-check"></i>
+      </button>
+      <button class="btn remove-btn" type="button">
+      <i class="fas fa-trash"></i>
+      </button>
+    </li>
+    `;
 
   //append html to UI
   todoList.innerHTML += html;
