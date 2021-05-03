@@ -10,16 +10,19 @@ const todos = [
 //event listeners
 addForm.addEventListener("submit", addTodo);
 todoList.addEventListener("click", e => {
+  let todoLi = e.target.parentElement;
+  let todoLiText = todoLi.firstElementChild.textContent;
+
   if(e.target.tagName === "BUTTON")
     if(e.target.classList.contains("check-btn")) 
-      toggleTodo(e);
+      toggleTodo(todoLi, todoLiText);
     else if(e.target.classList.contains("remove-btn"))
-      removeTodo(e);
+      removeTodo(todoLi, todoLiText);
 });
 
 //functions
 
-
+// add todo
 function addTodo(e) {
   e.preventDefault();
 
@@ -29,7 +32,7 @@ function addTodo(e) {
   //add newTodo in todos
   todos.push({todoContent: newTodo, isCompleted: false});
 
-  //update the UI
+  //update UI
   addTodoUI(newTodo);
 
   //clear form
@@ -56,12 +59,28 @@ function addTodoUI(todo) {
 }
 
 //change todo.isCompleted from array and update UI
-function toggleTodo(e) {
-  let todoLi = e.target.parentElement;
-  let todoLiText = todoLi.firstElementChild.textContent;
-  //check if todo isCompleted and change it
-  let arrayTodo = todos.find(todo => todo.todoContent === todoLiText);
+function toggleTodo(li, liText) {
+  let arrayTodo = todos.find(todo => todo.todoContent === liText);
+
   arrayTodo.isCompleted = !arrayTodo.isCompleted;
-  todoLi.classList.toggle("completed");
+  li.classList.toggle("completed");
 }
 
+//remove todo
+function removeTodo(li, liText) {
+  let index = todos.findIndex(todo => todo.todoContent = liText);
+
+  //remove from array
+  todos.splice(index, 1);
+
+  //update UI
+  removeTodoUI(li);
+}
+
+//update removeTodo UI
+function removeTodoUI(li) {
+  li.classList.add("moved");
+  
+  //add animation listener
+  li.addEventListener("transitionend", () => li.remove());
+}

@@ -99,6 +99,11 @@ body {
       opacity: .5;
     }
 
+    li.moved {
+      opacity: 0;
+      transform: translateX(20rem);
+    }
+
     li {
       width: 100%;
       display: flex;
@@ -107,7 +112,9 @@ body {
       background: #fff;
       padding: .5rem;
       margin-bottom: .5rem;
-      transition: opacity .5s ease;
+      transition: 
+        opacity .5s ease,
+        transform 1s ease;
 
       span {
         flex: 1;
