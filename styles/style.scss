@@ -104,6 +104,10 @@ body {
       transform: translateX(20rem);
     }
 
+    li.filtered {
+      display: none;
+    }
+
     li {
       width: 100%;
       display: flex;

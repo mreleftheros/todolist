@@ -1,5 +1,6 @@
 const addForm = document.getElementById("addForm");
 const todoList = document.getElementById("todoList");
+const todoFilter = document.getElementById("todoFilter");
 const todos = [
   {todoContent: "Go Shopping", isCompleted: false}
 ];
@@ -9,6 +10,7 @@ const todos = [
 
 //event listeners
 addForm.addEventListener("submit", addTodo);
+todoFilter.addEventListener("change", filterTodo);
 todoList.addEventListener("click", e => {
   let todoLi = e.target.parentElement;
   let todoLiText = todoLi.firstElementChild.textContent;
@@ -83,4 +85,29 @@ function removeTodoUI(li) {
   
   //add animation listener
   li.addEventListener("transitionend", () => li.remove());
+}
+
+//filter todos
+function filterTodo() {
+  let todoLis = todoList.children;
+  
+  for(let li of todoLis) {
+    switch (todoFilter.value) {
+      case "all":
+        li.classList.remove("filtered");
+        break;
+      case "completed":
+        if(!li.classList.contains("completed"))
+          li.classList.add("filtered");
+        else 
+          li.classList.remove("filtered");
+        break;
+      case "uncompleted":
+        if(li.classList.contains("completed"))
+          li.classList.add("filtered");
+        else 
+          li.classList.remove("filtered");
+        break;
+    }
+  }
 }

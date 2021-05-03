@@ -105,6 +105,9 @@ body {
   opacity: 0;
   transform: translateX(20rem);
 }
+.wrapper #todoList li.filtered {
+  display: none;
+}
 .wrapper #todoList li {
   width: 100%;
   display: flex;
