@@ -20,11 +20,8 @@ todoList.addEventListener("click", e => {
 
 //check localStorage for todos
 function checkLocalStorage() {
-  if(localStorage.todos) {
-
+  if(localStorage.todos)
     todos = JSON.parse(localStorage.getItem("todos"));
-    console.log(todos)
-  }
   else 
     todos = [];
 }
@@ -32,18 +29,22 @@ function checkLocalStorage() {
 function getLocalStorage() {
   checkLocalStorage();
 
-  todos.forEach(todo => addTodoUI(todo));
+  // add each todo from localStorage to UI
+  todos.forEach(todo => addTodoUI(todo.todoContent));
 }
 
 // add todo
 function addTodo(e) {
   e.preventDefault();
 
-  //take value
+  //take value from input
   let newTodo = e.target.addInput.value;
   
   //add newTodo in todos
   todos.push({todoContent: newTodo, isCompleted: false});
+
+  //set todos to localStorage
+  localStorage.setItem("todos", JSON.stringify(todos));
 
   //update UI
   addTodoUI(newTodo);
