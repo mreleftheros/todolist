@@ -1,28 +1,39 @@
 const addForm = document.getElementById("addForm");
 const todoList = document.getElementById("todoList");
 const todoFilter = document.getElementById("todoFilter");
-const todos = [
-  {todoContent: "Go Shopping", isCompleted: false}
-];
-
-// check localStorage for todos
-
+let todos;
 
 //event listeners
+window.addEventListener("DOMContentLoaded", getLocalStorage);
 addForm.addEventListener("submit", addTodo);
-todoFilter.addEventListener("change", filterTodo);
+todoFilter.addEventListener("input", filterTodo);
 todoList.addEventListener("click", e => {
   let todoLi = e.target.parentElement;
   let todoLiText = todoLi.firstElementChild.textContent;
-
+  
   if(e.target.tagName === "BUTTON")
-    if(e.target.classList.contains("check-btn")) 
-      toggleTodo(todoLi, todoLiText);
-    else if(e.target.classList.contains("remove-btn"))
-      removeTodo(todoLi, todoLiText);
+  if(e.target.classList.contains("check-btn")) 
+  toggleTodo(todoLi, todoLiText);
+  else if(e.target.classList.contains("remove-btn"))
+  removeTodo(todoLi, todoLiText);
 });
 
-//functions
+//check localStorage for todos
+function checkLocalStorage() {
+  if(localStorage.todos) {
+
+    todos = JSON.parse(localStorage.getItem("todos"));
+    console.log(todos)
+  }
+  else 
+    todos = [];
+}
+
+function getLocalStorage() {
+  checkLocalStorage();
+
+  todos.forEach(todo => addTodoUI(todo));
+}
 
 // add todo
 function addTodo(e) {
