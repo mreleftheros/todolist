@@ -156,7 +156,7 @@ function updateSearchTodoUI(searchValue) {
   let listItems = todoList.children;
 
   for (let child of listItems) {
-    let itemContent = child.children[0].textContent;
+    let itemContent = child.children[0].textContent.toLowerCase();
 
     if (itemContent.match(searchValue) || searchValue.length === 0) {
       child.style.display = "flex";
