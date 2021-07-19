@@ -2,7 +2,7 @@ const addForm = document.getElementById("addForm");
 const todoList = document.getElementById("todoList");
 const todoFilter = document.getElementById("todoFilter");
 const searchInput = document.getElementById("searchInput");
-const resetSearchInput = document.getElementById("resetSearchInput");
+const searchInputReset = document.getElementById("searchInputReset");
 let todos;
 
 //event listeners
@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", getLocalStorage);
 addForm.addEventListener("submit", addTodo);
 todoFilter.addEventListener("input", filterTodo);
 searchInput.addEventListener("input", searchTodo);
-resetSearchInput.addEventListener("click", resetSearchInput);
+searchInputReset.addEventListener("click", resetSearchInput);
 todoList.addEventListener("click", e => {
   let todoLi = e.target.parentElement;
   let todoLiText = todoLi.firstElementChild.textContent;
@@ -170,4 +170,10 @@ function searchTodo(e) {
   let searchTerm = e.target.value.trim().toLowerCase();
 
   updateSearchTodoUI(searchTerm);
+}
+
+function resetSearchInput() {
+  searchInput.value = "";
+
+  updateSearchTodoUI("");
 }
