@@ -67,6 +67,24 @@ body {
   justify-content: center;
   text-align: center;
 }
+.wrapper .inputs .todo-search-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.wrapper .inputs .todo-search-container .icon.delete:hover {
+  color: #d30d0d;
+  cursor: pointer;
+}
+.wrapper .inputs .todo-search-container .icon {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper .inputs .todo-search-container .icon i {
+  padding: 0.5rem;
+}
 .wrapper .inputs .todo-filter-container {
   width: 20rem;
   margin: auto;

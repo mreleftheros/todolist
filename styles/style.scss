@@ -58,6 +58,28 @@ body {
       justify-content: center;
       text-align: center;
     }
+
+    .todo-search-container {
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+
+      .icon.delete:hover {
+        color: $redish;
+        cursor: pointer;
+      }
+
+      .icon {
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+          padding: .5rem;
+        }
+      }
+    }
   
     .todo-filter-container {
       width: 20rem;
