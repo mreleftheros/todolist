@@ -10,6 +10,7 @@ window.addEventListener("DOMContentLoaded", getLocalStorage);
 addForm.addEventListener("submit", addTodo);
 todoFilter.addEventListener("input", filterTodo);
 searchInput.addEventListener("input", searchTodo);
+resetSearchInput.addEventListener("click", resetSearchInput);
 todoList.addEventListener("click", e => {
   let todoLi = e.target.parentElement;
   let todoLiText = todoLi.firstElementChild.textContent;
@@ -151,18 +152,22 @@ function filterTodo() {
   }
 }
 
-function searchTodo(e) {
-  let searchTerm = e.target.value.trim().toLowerCase();
-
+function updateSearchTodoUI(searchValue) {
   let listItems = todoList.children;
 
   for (let child of listItems) {
     let itemContent = child.children[0].textContent;
 
-    if (itemContent.match(searchTerm) || searchTerm.length === 0) {
+    if (itemContent.match(searchValue) || searchValue.length === 0) {
       child.style.display = "flex";
     } else {
       child.style.display = "none";
     }
   }
+}
+
+function searchTodo(e) {
+  let searchTerm = e.target.value.trim().toLowerCase();
+
+  updateSearchTodoUI(searchTerm);
 }
