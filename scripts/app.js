@@ -1,12 +1,15 @@
 const addForm = document.getElementById("addForm");
 const todoList = document.getElementById("todoList");
 const todoFilter = document.getElementById("todoFilter");
+const searchInput = document.getElementById("searchInput");
+const resetSearchInput = document.getElementById("resetSearchInput");
 let todos;
 
 //event listeners
 window.addEventListener("DOMContentLoaded", getLocalStorage);
 addForm.addEventListener("submit", addTodo);
 todoFilter.addEventListener("input", filterTodo);
+searchInput.addEventListener("input", searchTodo);
 todoList.addEventListener("click", e => {
   let todoLi = e.target.parentElement;
   let todoLiText = todoLi.firstElementChild.textContent;
@@ -144,6 +147,22 @@ function filterTodo() {
         else 
           li.classList.remove("filtered");
         break;
+    }
+  }
+}
+
+function searchTodo(e) {
+  let searchTerm = e.target.value.trim().toLowerCase();
+
+  let listItems = todoList.children;
+
+  for (let child of listItems) {
+    let itemContent = child.children[0].textContent;
+
+    if (itemContent.match(searchTerm) || searchTerm.length === 0) {
+      child.style.display = "flex";
+    } else {
+      child.style.display = "none";
     }
   }
 }
